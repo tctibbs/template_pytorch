@@ -1,6 +1,8 @@
-# Python Template
+![Template Banner](assets/template_banner.png)
 
-My personal Python project template to provide a streamlined starting point for Python projects.
+# PyTorch Template
+
+My personal PyTorch project template to provide a streamlined starting point for Python projects.
 
 ## Features
 
