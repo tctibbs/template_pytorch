@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Python project template using uv for dependency management and hatchling for building. It provides a streamlined starting point for Python projects with linting, testing, and pre-commit hooks pre-configured.
+This is a PyTorch project template using uv for dependency management and hatchling for building. It provides a streamlined starting point for PyTorch projects with linting, testing, and pre-commit hooks pre-configured.
 
 ## Development Commands
 

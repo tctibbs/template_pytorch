@@ -1,11 +1,11 @@
 ![Template Banner](assets/template_banner.png)
 
-# Python Template
+# PyTorch Template
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![CI](https://github.com/tctibbs/template_python/actions/workflows/ci.yml/badge.svg)](https://github.com/tctibbs/template_python/actions/workflows/ci.yml)
+[![CI](https://github.com/tctibbs/template_pytorch/actions/workflows/ci.yml/badge.svg)](https://github.com/tctibbs/template_pytorch/actions/workflows/ci.yml)
 
-A modern Python project template with automated development workflows and quality tools.
+A modern PyTorch project template with automated development workflows and quality tools.
 
 ## Features
 
@@ -26,7 +26,7 @@ A modern Python project template with automated development workflows and qualit
 ### Setup
 ```bash
 git clone <your-repo-url>
-cd template_python
+cd template_pytorch
 make install
 ```
 
