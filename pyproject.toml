@@ -35,7 +35,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 # Specify where the package is located in the repository
-packages = ["src/pytorch_template"]
+packages = ["src"]
 
 [tool.ruff]
 line-length = 88    # Set the maximum line length (88 chars for better readability)

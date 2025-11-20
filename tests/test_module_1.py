@@ -1,6 +1,6 @@
 """Example tests for ``pytorch_template``."""
 
-from pytorch_template import add
+from src import add
 
 
 def test_add_returns_sum() -> None:

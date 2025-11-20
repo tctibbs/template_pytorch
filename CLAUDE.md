@@ -31,7 +31,7 @@ uv run pytest tests/test_file.py::test_name -v  # Single test
 ## Project Structure
 
 ```
-src/pytorch_template/   # Main package source code
+src/                    # Main package source code
 tests/                  # Test files
 tools/docker/           # Dockerfile for DevContainer
 .devcontainer/          # VSCode DevContainer configuration

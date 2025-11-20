@@ -63,8 +63,7 @@ The following checks run automatically on commit:
 
 ```
 template_pytorch/
-├── src/                    # Source code
-│   └── pytorch_template/   # Main package
+├── src/                    # Source code (main package)
 ├── tests/                  # Test files
 ├── .devcontainer/          # DevContainer configuration
 ├── assets/                 # Project assets
