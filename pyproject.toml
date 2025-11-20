@@ -1,59 +1,94 @@
-[tool.poetry]
+[project]
 # Name and version of the library.
-name = "python_template"
+name = "pytorch_template"
 version = "0.1.0"
 
 # Short description of the project.
-description = "A Python template library for reusable Python project setups."
+description = "A PyTorch project template with automated development workflows."
 
 # Author information.
-authors = ["Tristan Tibbs <tristantibbs@gmail.com>"]
+authors = [{ name = "Tristan Tibbs", email = "tristantibbs@gmail.com" }]
 
 # License under which the project is distributed.
-license = "MIT"
+license = { text = "MIT" }
 
 # Path to the README file for project documentation.
 readme = "README.md"
 
-# Specify where the package is located in the repository.
-packages = [
-    { include = "python_template", from = "src" }
-]
+# Required Python version.
+requires-python = ">=3.11"
 
 # Production dependencies (none in this example, add here if needed).
-[tool.poetry.dependencies]
-python = "^3.10" # Required Python version.
+dependencies = []
 
 # Development dependencies, not required in production.
-[tool.poetry.dev-dependencies]
-ruff = "^0.8.4"     # Ruff: A linter and code formatter.
-pytest = "^7.4.4"   # Pytest: A testing framework for running unit tests.
-mypy = "^1.14.0"    # Mypy: A static type checker for enforcing type annotations.
+[dependency-groups]
+dev = [
+  "ruff>=0.12.11",    # Ruff: A linter and code formatter.
+  "pytest>=8.4.1"     # Pytest: A testing framework for running unit tests.
+]
 
-# Poetry build system requirements.
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+# Build system using hatchling - modern, fast Python packaging tool
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-
-[tool.mypy]
-enable_incomplete_feature = ["NewGenericSyntax"]    # Enable experimental features in Mypy, such as new syntax.
-strict = true                                       # Enforce strict type checking to catch potential issues early.
+[tool.hatch.build.targets.wheel]
+# Specify where the package is located in the repository
+packages = ["src"]
 
 [tool.ruff]
-line-length = 80    # Set the maximum line length (80 is the default based on PEP 8).
-indent-width = 4    # Number of spaces for indentation (default is 4 spaces).
+line-length = 88    # Set the maximum line length (88 chars for better readability)
+indent-width = 4    # Number of spaces for indentation (default is 4 spaces)
+target-version = "py311"    # Target Python version for modern syntax
 
 [tool.ruff.lint]
-# E: Enforces PEP 8 errors (syntax or structural errors in the code).
-# F: Enforces Pyflakes rules for catching unused imports and variables.
-# W: Enables general warnings for non-standard Python usage.
-# N: Enforces naming convention rules for variables, functions, and classes.
-# BLE: Enforces better list expressions and prevents suboptimal code patterns.
-# B: Enforces bug risk and best practice rules.
-# A: Enforces anti-pattern detection and prevents commonly misused idioms.
-# ICN: Enforces improved code readability and naming conventions.
-# Q: Enforces consistent usage of single or double quotes.
-# PD: Enforces pandas-specific best practices and catches common issues.
-# ANN: Enforces checks for type/return annotations
-select = ["E", "F", "W", "N", "BLE", "B", "A", "ICN", "Q", "PD", 'ANN']
+select = [
+    "E",    # PEP 8 errors (syntax or structural errors in the code)
+    "F",    # Pyflakes rules for catching unused imports and variables
+    "W",    # General warnings for non-standard Python usage
+    "I",    # Import sorting and organization
+    "N",    # Naming convention rules for variables, functions, and classes
+    "D",    # pydocstyle - docstring conventions
+    "BLE",  # Better list expressions and prevents suboptimal code patterns
+    "B",    # Bug risk and best practice rules
+    "A",    # Anti-pattern detection and prevents commonly misused idioms
+    "ICN",  # Improved code readability and naming conventions
+    "Q",    # Consistent usage of single or double quotes
+    "PD",   # Pandas-specific best practices and catches common issues
+    "ANN",  # Checks for type/return annotations
+    "UP",   # Upgrade syntax for newer Python versions
+    "C4",   # Code complexity and comprehensions
+    "SIM",  # Code simplification suggestions
+    "PT",   # pytest-style checks
+    "PTH",  # Use pathlib instead of os.path
+    "PIE",  # Miscellaneous linting rules
+    "ISC",  # Implicit string concatenation
+    "TID",  # Tidy imports
+    "RUF",  # Ruff-specific rules
+]
+ignore = [
+    "E501",  # Line too long (handled by formatter)
+    "D203",  # One blank line before class (conflicts with D211)
+    "D213",  # Multi-line summary second line (conflicts with D212)
+]
+unfixable = [
+    "F401",  # Prevent auto-removal of unused imports while editing
+]
+
+# Google-style docstring configuration
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+# Import sorting configuration
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+
+# Tidy imports configuration
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+# Code formatting configuration
+[tool.ruff.format]
+quote-style = "double"    # Use double quotes for strings
+indent-style = "space"    # Use spaces for indentation

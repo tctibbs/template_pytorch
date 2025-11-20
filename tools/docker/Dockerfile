@@ -6,30 +6,30 @@ ENV PYTHONUNBUFFERED=1
 
 # Install tzdata for timezone configuration
 RUN apt-get update && \
-    apt-get install -y tzdata
+    apt-get install -y tzdata sudo
 
 # Set the timezone to EST (use a region like America/New_York that observes EST)
 ENV TZ=America/New_York
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-# Install Poetry, a dependency management tool for Python
-RUN pip install poetry
+# Install uv, a fast Python package installer and resolver
+RUN pip install uv
 
-# Configure Poetry to install dependencies globally
-RUN poetry config virtualenvs.create false
+# Create and set the working directory
+WORKDIR /app
 
-# Copy the dependency files (pyproject.toml and poetry.lock) to the container
-COPY ./pyproject.toml ./poetry.lock ./
+# Copy all necessary files
+COPY . .
 
-# Synchronize the lock file with the pyproject.toml without updating dependencies
-# --no-update: Ensures the poetry.lock matches pyproject.toml without upgrading versions
+# Install dependencies using uv (both production and development)
+RUN uv pip install --system ".[dev]"
 
-# Install dependencies from the lock file
-# --no-ansi: Disables colored output
-# --no-interaction: Skips any interactive prompts
-# --no-root: Does not install the current project as a dependency
-RUN poetry lock --no-update && \
-    poetry install --no-ansi --no-interaction --no-root
+# Create a non-root user and add to sudo group
+RUN useradd -m -s /bin/bash developer && \
+    echo "developer ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# Switch to the non-root user
+USER developer
 
 # Update the package list
-RUN apt-get update 
+RUN sudo apt-get update
