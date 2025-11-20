@@ -1,10 +1,10 @@
 [project]
 # Name and version of the library.
-name = "python_template"
+name = "pytorch_template"
 version = "0.1.0"
 
 # Short description of the project.
-description = "A Python template library for reusable Python project setups."
+description = "A PyTorch project template with automated development workflows."
 
 # Author information.
 authors = [{ name = "Tristan Tibbs", email = "tristantibbs@gmail.com" }]
@@ -35,7 +35,7 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 # Specify where the package is located in the repository
-packages = ["src/python_template"]
+packages = ["src/pytorch_template"]
 
 [tool.ruff]
 line-length = 88    # Set the maximum line length (88 chars for better readability)

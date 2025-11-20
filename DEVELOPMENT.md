@@ -14,7 +14,7 @@ This document provides detailed setup instructions and development guidelines fo
 ### 1. Clone and Navigate
 ```bash
 git clone <repository-url>
-cd template_python
+cd template_pytorch
 ```
 
 ### 2. Install Dependencies
@@ -62,9 +62,9 @@ The following checks run automatically on commit:
 ## Project Structure
 
 ```
-template_python/
+template_pytorch/
 ├── src/                    # Source code
-│   └── python_template/    # Main package
+│   └── pytorch_template/   # Main package
 ├── tests/                  # Test files
 ├── .devcontainer/          # DevContainer configuration
 ├── assets/                 # Project assets
@@ -90,7 +90,7 @@ uv run pytest tests/test_specific.py
 
 Run tests with coverage:
 ```bash
-uv run pytest --cov=python_template
+uv run pytest --cov=pytorch_template
 ```
 
 ## Code Style Guidelines

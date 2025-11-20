@@ -1,6 +1,6 @@
 {
     // The name of the container
-    "name": "python_template",
+    "name": "pytorch_template",
 
     // Build configuration for the container
     "build": {
