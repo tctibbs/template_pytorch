@@ -89,7 +89,7 @@ uv run pytest tests/test_specific.py
 
 Run tests with coverage:
 ```bash
-uv run pytest --cov=pytorch_template
+uv run pytest --cov=src
 ```
 
 ## Code Style Guidelines
