@@ -6,7 +6,7 @@
     "build": {
         // Path to the Dockerfile (relative to the current file)
         "dockerfile": "../tools/docker/Dockerfile",
-        
+
         // The build context for Docker (defines the root directory for the Docker build)
         "context": ".."
     },
@@ -31,8 +31,13 @@
                 "tamasfe.even-better-toml",
                 "ms-toolsai.jupyter",
                 "mechatroner.rainbow-csv",
-                "jebbs.plantuml"
+                "jebbs.plantuml",
+                "actboy168.tasks",
+                "Gruntfuggly.triggertaskonsave"
             ]
         }
-    }
+    },
+
+    // Remote user configuration
+    "remoteUser": "developer"
 }
