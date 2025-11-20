@@ -131,13 +131,6 @@ git commit
 uv run ruff check .
 ```
 
-## Environment Variables
-
-If your project uses environment variables, copy the example file and customize:
-```bash
-cp .env.example .env
-```
-
 ---
 
 For general project information and usage instructions, see [README.md](README.md).
