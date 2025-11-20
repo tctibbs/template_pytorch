@@ -1,6 +1,6 @@
 # Label Schema
 
-This project uses the **Mechanical Color** label schema for organizing issues and pull requests. Labels are categorized into five dimensions:
+This project uses a label schema for organizing issues and pull requests. Labels are categorized into five dimensions:
 
 ## Label Categories
 
@@ -76,26 +76,3 @@ As work progresses, update the status label:
 ### Pull Requests
 
 PRs inherit labels from their related issues. Add the same Type, Area, and Priority labels to maintain consistency.
-
-## Managing Labels
-
-Labels are defined in `.github/labels.yml`. Use the GitHub CLI to create labels:
-
-```bash
-gh label create "T-Feat" --color "0E8A16" --description "New feature or capability" -f
-gh label create "T-Fix" --color "D73A4A" --description "Bug fix" -f
-# ... continue for all labels in .github/labels.yml
-```
-
-Or use the GitHub web interface to manually create labels based on the schema defined in `.github/labels.yml`.
-
-## Visual Board Organization
-
-Labels are designed for visual project boards:
-- **Types** use distinct prefixes for quick scanning
-- **Status** uses color progression
-- **Priority** uses traffic light colors (red to green)
-- **Areas** all use A- prefix for visual consistency
-- **Effort** all use E- prefix for visual consistency
-
-This makes it easy to filter and organize issues on GitHub Projects boards.
